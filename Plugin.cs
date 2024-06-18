@@ -14,7 +14,7 @@ namespace SaveExtender {
             return @object.transform.Find(name).gameObject;
         }
     }
-    [BepInPlugin("tairasoul.vaproxy.saveextender", "SaveExtender", "1.0.0")]
+    [BepInPlugin("tairasoul.vaproxy.saveextender", "SaveExtender", "1.0.1")]
     public class Plugin  : BaseUnityPlugin
     {
         internal int ExtraSlots = PlayerPrefs.GetInt("save-extender-extra-slots", 0);
@@ -26,12 +26,12 @@ namespace SaveExtender {
             GameObject Slots = GameObject.Find("Canvas").Find("SlotSelect").Find("Scroll View").Find("Viewport").Find("Content");
             GameObject Slot = Slots.Find("Slot3");
             GameObject clone = Instantiate(Slot);
-            int ChildAmount = Slots.transform.childCount + 1;
+            int ChildAmount = Slots.transform.childCount;
             SaveSlot save = clone.GetComponent<SaveSlot>();
             save.ID = ChildAmount;
             RectTransform transform = clone.GetComponent<RectTransform>();
             transform.localScale = new(1, 1, 1);
-            clone.name = $"ExtraSlot{ChildAmount - 5}";
+            clone.name = $"ExtraSlot{ChildAmount - 4}";
             clone.transform.SetParent(Slots.transform, false);
             clone.Find("select").SetActive(false);
             clone.Find("Timer").SetActive(false);
