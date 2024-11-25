@@ -13,7 +13,7 @@ namespace SaveExtender {
 			return @object.transform.Find(name).gameObject;
 		}
 	}
-	[BepInPlugin("tairasoul.vaproxy.saveextender", "SaveExtender", "2.0.0")]
+	[BepInPlugin("tairasoul.vaproxy.saveextender", "SaveExtender", "2.0.1")]
 	public class Plugin  : BaseUnityPlugin
 	{
 		internal int ExtraSlots = PlayerPrefs.GetInt("save-extender-extra-slots", 0);
